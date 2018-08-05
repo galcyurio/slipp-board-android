@@ -5,5 +5,5 @@ data class Board(
     val content: String,
     /* TODO: 게시글 data class */
 
-    val id: Long
+    val id: Long? = null
 )
