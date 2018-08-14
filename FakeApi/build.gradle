@@ -5,7 +5,7 @@ dependencies {
     implementation deps.kotlin
     implementation deps.retrofit, deps.retrofitJackson, deps.retrofitRxJava
 
-    testImplementation deps.junit
+    testImplementation deps.junit, deps.okhttpMockWebServer
 }
 
 sourceCompatibility = "1.7"

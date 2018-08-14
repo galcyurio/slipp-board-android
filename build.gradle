@@ -20,23 +20,24 @@ buildscript {
         ]
 
         deps = [
-                kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
-                rxJava          : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
-                rxAndroid       : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
-                rxKotlin        : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
+                kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+                rxJava             : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+                rxAndroid          : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+                rxKotlin           : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
 
-                okhttp          : "com.squareup.okhttp3:okhttp:$versions.okhttp",
-                retrofit        : "com.squareup.retrofit2:retrofit:$versions.retrofit",
-                retrofitJackson : "com.squareup.retrofit2:converter-jackson:$versions.retrofit",
-                retrofitRxJava  : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+                okhttp             : "com.squareup.okhttp3:okhttp:$versions.okhttp",
+                retrofit           : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                retrofitJackson    : "com.squareup.retrofit2:converter-jackson:$versions.retrofit",
+                retrofitRxJava     : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
 
-                appCompat       : "com.android.support:appcompat-v7:$versions.support",
-                constraintLayout: "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
-                recyclerView    : "com.android.support:recyclerview-v7:$versions.support",
+                appCompat          : "com.android.support:appcompat-v7:$versions.support",
+                constraintLayout   : "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
+                recyclerView       : "com.android.support:recyclerview-v7:$versions.support",
 
-                junit           : "junit:junit:$versions.junit",
-                testRunner      : "com.android.support.test:runner:$versions.testRunner",
-                espresso        : "com.android.support.test.espresso:espresso-core:$versions.espresso",
+                junit              : "junit:junit:$versions.junit",
+                testRunner         : "com.android.support.test:runner:$versions.testRunner",
+                espresso           : "com.android.support.test.espresso:espresso-core:$versions.espresso",
+                okhttpMockWebServer: "com.squareup.okhttp3:mockwebserver:3.10.0"
         ]
     }
 
