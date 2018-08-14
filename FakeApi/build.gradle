@@ -1,0 +1,16 @@
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-noarg'
+
+dependencies {
+    implementation deps.kotlin
+    implementation deps.retrofit, deps.retrofitJackson, deps.retrofitRxJava
+
+    testImplementation deps.junit, deps.okhttpMockWebServer
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+noArg {
+    annotation "com.github.galcyurio.fakeapi.NoArgsConstructor"
+}
