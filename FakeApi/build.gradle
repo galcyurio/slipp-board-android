@@ -1,0 +1,11 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation deps.kotlin
+    implementation deps.retrofit, deps.retrofitJackson, deps.retrofitRxJava
+
+    testImplementation deps.junit
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
