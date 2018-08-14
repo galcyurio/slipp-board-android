@@ -18,7 +18,7 @@ interface FakeApi {
     fun findPostComments(@Path("id") id: Long): Single<List<Comment>>
 
     @GET("posts")
-    fun findPostsByUserId(@Query("userId") userId: String): Single<List<Post>>
+    fun findPostsByUserId(@Query("userId") userId: Long): Single<List<Post>>
 
     @POST("posts")
     fun savePost(@Body post: Post): Completable
