@@ -6,7 +6,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory
 
 const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
-fun fakeApiRequest(): FakeApi {
+fun fakeApi(): FakeApi {
     return Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(JacksonConverterFactory.create())
