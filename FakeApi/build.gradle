@@ -1,4 +1,5 @@
 apply plugin: 'kotlin'
+apply plugin: 'kotlin-noarg'
 
 dependencies {
     implementation deps.kotlin
@@ -9,3 +10,7 @@ dependencies {
 
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
+
+noArg {
+    annotation "com.github.galcyurio.fakeapi.NoArgsConstructor"
+}
