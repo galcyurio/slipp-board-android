@@ -4,6 +4,7 @@ apply plugin: 'kotlin-noarg'
 dependencies {
     implementation deps.kotlin
     implementation deps.retrofit, deps.retrofitJackson, deps.retrofitRxJava
+    compile deps.rxJava
 
     testImplementation deps.junit, deps.okhttpMockWebServer
 }
