@@ -23,6 +23,7 @@ android {
 dependencies {
     implementation deps.kotlin
     implementation project(':FakeApi')
+    implementation deps.rxJava, deps.rxKotlin, deps.rxAndroid
 
     implementation deps.appCompat, deps.constraintLayout, deps.recyclerView
 
