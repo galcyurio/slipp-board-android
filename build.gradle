@@ -30,6 +30,7 @@ buildscript {
                 retrofitJackson    : "com.squareup.retrofit2:converter-jackson:$versions.retrofit",
                 retrofitRxJava     : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
 
+                design             : "com.android.support:design:$versions.support",
                 appCompat          : "com.android.support:appcompat-v7:$versions.support",
                 constraintLayout   : "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
                 recyclerView       : "com.android.support:recyclerview-v7:$versions.support",
