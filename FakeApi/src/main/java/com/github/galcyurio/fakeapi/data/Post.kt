@@ -1,6 +1,7 @@
 package com.github.galcyurio.fakeapi.data
 
 import com.github.galcyurio.fakeapi.NoArgsConstructor
+import java.io.Serializable
 
 @NoArgsConstructor
 data class Post(
@@ -9,4 +10,4 @@ data class Post(
 
     val id: Long? = 0,
     val userId: Long? = 0
-)
+) : Serializable
