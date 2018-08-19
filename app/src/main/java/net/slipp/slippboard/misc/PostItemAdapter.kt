@@ -25,8 +25,13 @@ class PostItemAdapter : RecyclerView.Adapter<PostItemAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = posts.size
 
-    fun add(boards: List<Post>) {
-        this.posts.addAll(boards)
+    fun add(posts: List<Post>) {
+        this.posts.addAll(posts)
+        notifyDataSetChanged()
+    }
+
+    fun addFirst(post: Post) {
+        posts.add(0, post)
         notifyDataSetChanged()
     }
 

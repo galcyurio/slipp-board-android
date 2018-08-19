@@ -1,5 +1,6 @@
 package net.slipp.slippboard
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -39,6 +40,17 @@ class ListActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode != Activity.RESULT_OK) return
+
+        when (requestCode) {
+            WriteActivity.CODE -> {
+                val post = data?.getSerializableExtra("post") as? Post
+                post?.let { adapter.addFirst(it) }
+            }
+        }
+    }
+
     fun findPosts() {
         fakeApi.findPosts()
             .subscribeOn(Schedulers.io())
@@ -46,7 +58,7 @@ class ListActivity : AppCompatActivity() {
             .doOnSubscribe { showLoading() }
             .doFinally { hideLoading() }
             .subscribeBy(
-                onSuccess = { addPosts(it) },
+                onSuccess = { adapter.add(it) },
                 onError = {
                     showErrorToast()
                     Log.e(javaClass.name, "findPosts onError", it)
@@ -65,9 +77,5 @@ class ListActivity : AppCompatActivity() {
 
     fun showErrorToast() {
         Toast.makeText(this, "에러 발생", Toast.LENGTH_SHORT).show()
-    }
-
-    fun addPosts(posts: List<Post>) {
-        adapter.add(posts)
     }
 }
