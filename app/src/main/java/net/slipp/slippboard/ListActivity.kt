@@ -27,7 +27,8 @@ class ListActivity : AppCompatActivity() {
 
         recycler.adapter = adapter
         fabAdd.setOnClickListener {
-            startActivity(Intent(this, WriteActivity::class.java))
+            val intent = Intent(this, WriteActivity::class.java)
+            startActivityForResult(intent, WriteActivity.CODE)
         }
 
         findPosts()
