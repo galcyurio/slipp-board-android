@@ -1,5 +1,6 @@
 package net.slipp.slippboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -25,6 +26,9 @@ class ListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_list)
 
         recycler.adapter = adapter
+        fabAdd.setOnClickListener {
+            startActivity(Intent(this, WriteActivity::class.java))
+        }
 
         findPosts()
     }
