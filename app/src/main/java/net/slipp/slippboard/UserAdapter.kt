@@ -1,5 +1,6 @@
 package net.slipp.slippboard
 
+import android.database.Cursor
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.TextView
 
 
 class UsersAdapter(private var items: ArrayList<UserDto>) : RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent?.context)
                 .inflate(R.layout.list_row, parent, false)
@@ -37,4 +39,5 @@ class UsersAdapter(private var items: ArrayList<UserDto>) : RecyclerView.Adapter
             this.txtComment = row?.findViewById<TextView>(R.id.txtComment)
         }
     }
+
 }
