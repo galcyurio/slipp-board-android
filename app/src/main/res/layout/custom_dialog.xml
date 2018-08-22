@@ -14,8 +14,7 @@
             android:id="@+id/edt_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="title"
-            android:text="test" />
+            android:hint="title" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -26,8 +25,7 @@
             android:id="@+id/edt_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="comment"
-            android:text="test" />
+            android:hint="comment" />
 
     </android.support.design.widget.TextInputLayout>
 

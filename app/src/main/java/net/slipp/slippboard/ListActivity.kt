@@ -12,11 +12,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_list.*
-import kotlinx.android.synthetic.main.custom_dialog.*
-
 
 class ListActivity : AppCompatActivity() {
     val mAuth = FirebaseAuth.getInstance()
@@ -26,12 +25,16 @@ class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
-        Toast.makeText(this, mAuth.currentUser.toString(), Toast.LENGTH_LONG).show()
-        val layoutManager = LinearLayoutManager(applicationContext)
+
+        val layoutManager = LinearLayoutManager(applicationContext, LinearLayout.VERTICAL, false)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.itemAnimator = DefaultItemAnimator()
         recyclerView?.adapter = mAadapter
         mAadapter.notifyDataSetChanged()
+        swipe_layout.setOnRefreshListener {
+            mAadapter.notifyDataSetChanged()
+            swipe_layout.isRefreshing = false
+        }
 
         addItem()
         removeItem()
@@ -91,7 +94,7 @@ class ListActivity : AppCompatActivity() {
     fun generateData(): ArrayList<UserDto> {
 
         for (i in 0..5) {
-            var user = UserDto("Example " + i, "TestTest :)")
+            var user = UserDto("Example " + i, "TestTest :) \n testset \n te")
             mInputArray.add(user)
         }
 
