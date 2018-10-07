@@ -1,0 +1,14 @@
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-noarg'
+apply plugin: 'java-library'
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+
+dependencies {
+    implementation deps.kotlin
+    implementation deps.retrofit, deps.retrofitJackson, deps.retrofitRxJava
+    api deps.rxJava
+
+    testImplementation deps.junit
+}
