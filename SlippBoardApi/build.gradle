@@ -6,7 +6,7 @@ sourceCompatibility = "7"
 targetCompatibility = "7"
 
 dependencies {
-    implementation deps.kotlin
+    implementation deps.kotlin, deps.jacksonKotlin
     implementation deps.retrofit, deps.retrofitJackson, deps.retrofitRxJava
     api deps.rxJava
 
