@@ -25,6 +25,12 @@ class BoardItemAdapter : RecyclerView.Adapter<BoardItemAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = boards.size
 
+    fun clearAndAdd(boards: List<Board>) {
+        this.boards.clear()
+        this.boards.addAll(boards)
+        notifyDataSetChanged()
+    }
+
     fun add(boards: List<Board>) {
         this.boards.addAll(boards)
         notifyDataSetChanged()
