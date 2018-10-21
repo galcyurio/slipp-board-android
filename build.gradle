@@ -34,6 +34,7 @@ buildscript {
                 retrofitRxJava     : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
                 jacksonKotlin      : "com.fasterxml.jackson.module:jackson-module-kotlin:$versions.jackson",
 
+                dataBinding        : "androidx.databinding:databinding-runtime:$versions.androidPlugin",
                 lifecycle          : "android.arch.lifecycle:extensions:$versions.lifecycle",
                 design             : "com.android.support:design:$versions.support",
                 appCompat          : "com.android.support:appcompat-v7:$versions.support",
