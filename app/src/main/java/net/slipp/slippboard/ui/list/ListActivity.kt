@@ -1,4 +1,4 @@
-package net.slipp.slippboard
+package net.slipp.slippboard.ui.list
 
 import android.app.Activity
 import android.content.Intent
@@ -14,7 +14,9 @@ import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_list.*
+import net.slipp.slippboard.R
 import net.slipp.slippboard.misc.BoardItemAdapter
+import net.slipp.slippboard.ui.write.WriteActivity
 import java.util.*
 
 class ListActivity : AppCompatActivity() {

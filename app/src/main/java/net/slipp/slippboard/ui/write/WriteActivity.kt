@@ -1,4 +1,4 @@
-package net.slipp.slippboard
+package net.slipp.slippboard.ui.write
 
 import android.app.Activity
 import android.content.Intent
@@ -11,6 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_write.*
+import net.slipp.slippboard.R
 
 class WriteActivity : AppCompatActivity() {
     companion object {
