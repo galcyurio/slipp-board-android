@@ -7,6 +7,6 @@ data class Board(
         val username: String,
         val title: String,
         val content: String,
-        val createdDateTime: Date,
+        val createdDateTime: Date? = null,
         val updatedDateTime: Date? = null
 )
