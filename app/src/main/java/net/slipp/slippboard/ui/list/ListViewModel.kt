@@ -30,8 +30,8 @@ class ListViewModel : ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { isLoading.postValue(true) }
             .doFinally { isLoading.postValue(false) }
-            .doOnSuccess { boards.postValue(it) }
             .subscribeBy(
+                onSuccess = { boards.postValue(it) },
                 onError = {
                     onError.postValue(it)
                     Log.e(javaClass.name, "findBoards onError", it)
