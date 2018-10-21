@@ -13,6 +13,7 @@ buildscript {
                 retrofit        : '2.4.0',
                 jackson         : '2.9.5',
 
+                lifecycle       : '1.1.1',
                 support         : '27.1.1',
                 constraintLayout: '1.1.2',
 
@@ -33,6 +34,7 @@ buildscript {
                 retrofitRxJava     : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
                 jacksonKotlin      : "com.fasterxml.jackson.module:jackson-module-kotlin:$versions.jackson",
 
+                lifecycle          : "android.arch.lifecycle:extensions:$versions.lifecycle",
                 design             : "com.android.support:design:$versions.support",
                 appCompat          : "com.android.support:appcompat-v7:$versions.support",
                 constraintLayout   : "com.android.support.constraint:constraint-layout:$versions.constraintLayout",

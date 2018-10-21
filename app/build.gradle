@@ -26,6 +26,7 @@ dependencies {
     implementation deps.rxJava, deps.rxKotlin, deps.rxAndroid
 
     implementation deps.design, deps.constraintLayout
+    implementation deps.lifecycle
 
     testImplementation deps.junit
     androidTestImplementation deps.testRunner, deps.espresso
