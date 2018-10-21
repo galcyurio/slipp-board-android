@@ -25,7 +25,7 @@ class WriteActivity : AppCompatActivity() {
         fabComplete.setOnClickListener {
             write(Board(
                 title = etTitle.text.toString(),
-                content = etBody.text.toString()
+                content = etContent.text.toString()
             ))
         }
     }
