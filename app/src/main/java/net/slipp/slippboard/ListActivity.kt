@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
-import com.github.galcyurio.fakeapi.data.Post
 import com.github.galcyurio.slippboardapi.SlippBoardClient
+import com.github.galcyurio.slippboardapi.data.Board
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -15,6 +15,7 @@ import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_list.*
 import net.slipp.slippboard.misc.BoardItemAdapter
+import java.util.*
 
 class ListActivity : AppCompatActivity() {
     private val adapter by lazy { BoardItemAdapter() }
@@ -43,8 +44,16 @@ class ListActivity : AppCompatActivity() {
 
         when (requestCode) {
             WriteActivity.CODE -> {
-                val post = data?.getSerializableExtra("post") as? Post
-                // TODO: board 로 바꾸기
+                data?.apply {
+                    Board(
+                        title = getStringExtra("title"),
+                        content = getStringExtra("content"),
+                        id = getLongExtra("id", -1),
+                        username = getStringExtra("username"),
+                        createdDateTime = Date(getLongExtra("createDateTime", -1)),
+                        updatedDateTime = Date(getLongExtra("updatedTime", -1))
+                    ).also { adapter.addFirst(it) }
+                }
             }
         }
     }
