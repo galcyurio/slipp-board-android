@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.github.galcyurio.fakeapi.FakeApi
 import com.github.galcyurio.fakeapi.data.Post
 import com.github.galcyurio.fakeapi.fakeApi
+import com.github.galcyurio.slippboardapi.SlippBoardClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -49,6 +50,22 @@ class ListActivity : AppCompatActivity() {
                 post?.let { adapter.addFirst(it) }
             }
         }
+    }
+
+    fun findBoards() {
+        SlippBoardClient.boards()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { showLoading() }
+            .doFinally { hideLoading() }
+            .subscribeBy(
+                onSuccess = { /* TODO: Boards 목록 가져온 뒤 */ },
+                onError = {
+                    showErrorToast()
+                    Log.e(javaClass.name, "findBoards onError", it)
+                }
+            )
+            .addTo(disposable)
     }
 
     fun findPosts() {
