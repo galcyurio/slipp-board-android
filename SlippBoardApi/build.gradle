@@ -11,4 +11,5 @@ dependencies {
     api deps.rxJava
 
     testImplementation deps.junit
+    testImplementation deps.okhttpMockWebServer
 }
