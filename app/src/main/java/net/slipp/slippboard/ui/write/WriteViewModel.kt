@@ -9,6 +9,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
+import net.slipp.slippboard.misc.RxBus
 
 class WriteViewModel : ViewModel() {
 
@@ -35,7 +36,10 @@ class WriteViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onComplete = { onCreateComplete.postValue(board) },
+                onComplete = {
+                    onCreateComplete.postValue(board)
+                    RxBus.lastCreatedBoard.onNext(board)
+                },
                 onError = { onError.postValue(it) }
             )
             .addTo(disposable)

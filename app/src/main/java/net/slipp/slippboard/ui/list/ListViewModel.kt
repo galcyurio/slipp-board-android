@@ -10,6 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
+import net.slipp.slippboard.misc.RxBus
 
 class ListViewModel : ViewModel() {
 
@@ -18,6 +19,18 @@ class ListViewModel : ViewModel() {
     val boards = MutableLiveData<List<Board>>()
     val isLoading = MutableLiveData<Boolean>()
     val onError = MutableLiveData<Throwable>()
+
+    init {
+        RxBus.lastCreatedBoard
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { newBoard ->
+                val new = mutableListOf<Board>(newBoard)
+                boards.value?.let { new.addAll(it) }
+                boards.postValue(new)
+            }
+            .addTo(disposable)
+    }
 
     override fun onCleared() {
         super.onCleared()
