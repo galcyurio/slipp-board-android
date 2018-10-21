@@ -16,10 +16,10 @@ import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_list.*
-import net.slipp.slippboard.misc.PostItemAdapter
+import net.slipp.slippboard.misc.BoardItemAdapter
 
 class ListActivity : AppCompatActivity() {
-    private val adapter by lazy { PostItemAdapter() }
+    private val adapter by lazy { BoardItemAdapter() }
     private val fakeApi: FakeApi by lazy { fakeApi() }
     private val disposable = CompositeDisposable()
 

@@ -8,7 +8,7 @@ import com.github.galcyurio.fakeapi.data.Post
 import kotlinx.android.synthetic.main.item_board.view.*
 import net.slipp.slippboard.R
 
-class PostItemAdapter : RecyclerView.Adapter<PostItemAdapter.ViewHolder>() {
+class BoardItemAdapter : RecyclerView.Adapter<BoardItemAdapter.ViewHolder>() {
     private val posts = mutableListOf<Post>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
