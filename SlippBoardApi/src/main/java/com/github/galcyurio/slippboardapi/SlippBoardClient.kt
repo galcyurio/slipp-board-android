@@ -3,13 +3,12 @@ package com.github.galcyurio.slippboardapi
 import com.github.galcyurio.slippboardapi.data.Board
 import io.reactivex.Completable
 import io.reactivex.Single
-import okhttp3.HttpUrl
 
 object SlippBoardClient {
 
     internal lateinit var api: SlippBoardApi
 
-    fun init(baseUrl: HttpUrl = HttpUrl.parse(BASE_URL)!!) {
+    fun init(baseUrl: String = BASE_URL) {
         api = Injector.provideRetrofit()
             .newBuilder().baseUrl(baseUrl)
             .build()

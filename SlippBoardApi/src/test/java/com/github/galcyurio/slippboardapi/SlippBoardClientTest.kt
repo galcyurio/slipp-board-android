@@ -19,7 +19,7 @@ class SlippBoardClientTest {
         server = MockWebServer()
         response = MockResponse()
 
-        SlippBoardClient.init(baseUrl = server.url(""))
+        SlippBoardClient.init(baseUrl = server.url("").toString())
     }
 
     @After

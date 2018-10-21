@@ -5,7 +5,7 @@ import io.reactivex.Completable
 import io.reactivex.Single
 import retrofit2.http.*
 
-interface SlippBoardApi {
+internal interface SlippBoardApi {
     @GET("board/posts")
     fun boards(): Single<List<Board>>
 
