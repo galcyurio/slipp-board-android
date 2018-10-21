@@ -4,12 +4,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.github.galcyurio.fakeapi.data.Post
+import com.github.galcyurio.slippboardapi.data.Board
 import kotlinx.android.synthetic.main.item_board.view.*
 import net.slipp.slippboard.R
 
 class BoardItemAdapter : RecyclerView.Adapter<BoardItemAdapter.ViewHolder>() {
-    private val posts = mutableListOf<Post>()
+    private val boards = mutableListOf<Board>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context)
@@ -17,21 +17,21 @@ class BoardItemAdapter : RecyclerView.Adapter<BoardItemAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val post = posts[position]
+        val board = boards[position]
         with(holder.itemView) {
-            title.text = post.title
+            title.text = board.title
         }
     }
 
-    override fun getItemCount(): Int = posts.size
+    override fun getItemCount(): Int = boards.size
 
-    fun add(posts: List<Post>) {
-        this.posts.addAll(posts)
+    fun add(boards: List<Board>) {
+        this.boards.addAll(boards)
         notifyDataSetChanged()
     }
 
-    fun addFirst(post: Post) {
-        posts.add(0, post)
+    fun addFirst(board: Board) {
+        boards.add(0, board)
         notifyDataSetChanged()
     }
 

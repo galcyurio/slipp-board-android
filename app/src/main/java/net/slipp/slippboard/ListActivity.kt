@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
-import com.github.galcyurio.fakeapi.FakeApi
 import com.github.galcyurio.fakeapi.data.Post
-import com.github.galcyurio.fakeapi.fakeApi
 import com.github.galcyurio.slippboardapi.SlippBoardClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -20,7 +18,6 @@ import net.slipp.slippboard.misc.BoardItemAdapter
 
 class ListActivity : AppCompatActivity() {
     private val adapter by lazy { BoardItemAdapter() }
-    private val fakeApi: FakeApi by lazy { fakeApi() }
     private val disposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +30,7 @@ class ListActivity : AppCompatActivity() {
             startActivityForResult(intent, WriteActivity.CODE)
         }
 
-        findPosts()
+        findBoards()
     }
 
     override fun onDestroy() {
@@ -47,7 +44,7 @@ class ListActivity : AppCompatActivity() {
         when (requestCode) {
             WriteActivity.CODE -> {
                 val post = data?.getSerializableExtra("post") as? Post
-                post?.let { adapter.addFirst(it) }
+                // TODO: board 로 바꾸기
             }
         }
     }
@@ -59,26 +56,10 @@ class ListActivity : AppCompatActivity() {
             .doOnSubscribe { showLoading() }
             .doFinally { hideLoading() }
             .subscribeBy(
-                onSuccess = { /* TODO: Boards 목록 가져온 뒤 */ },
-                onError = {
-                    showErrorToast()
-                    Log.e(javaClass.name, "findBoards onError", it)
-                }
-            )
-            .addTo(disposable)
-    }
-
-    fun findPosts() {
-        fakeApi.findPosts()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { showLoading() }
-            .doFinally { hideLoading() }
-            .subscribeBy(
                 onSuccess = { adapter.add(it) },
                 onError = {
                     showErrorToast()
-                    Log.e(javaClass.name, "findPosts onError", it)
+                    Log.e(javaClass.name, "findBoards onError", it)
                 }
             )
             .addTo(disposable)
