@@ -46,6 +46,8 @@ dependencies {
 
     //checkbox
     implementation 'com.github.rey5137:material:1.2.5'
+
+    implementation 'it.chengdazhi.decentbanner:decentbanner:1.0.7'
 }
 
 

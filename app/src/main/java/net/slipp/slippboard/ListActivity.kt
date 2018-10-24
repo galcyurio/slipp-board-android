@@ -26,6 +26,8 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        initBannerAnimation()
+
         val layoutManager = LinearLayoutManager(applicationContext, LinearLayout.VERTICAL, false)
         recyclerView?.layoutManager = layoutManager
         recyclerView?.itemAnimator = DefaultItemAnimator()
@@ -39,6 +41,16 @@ class ListActivity : AppCompatActivity() {
         addItem()
         removeItem()
 
+    }
+
+    private fun initBannerAnimation() {
+        val view1 = layoutInflater.inflate(R.layout.first_tab_layout, null)
+        val view2 = layoutInflater.inflate(R.layout.second_tab_layout, null)
+        val view3 = layoutInflater.inflate(R.layout.third_tab_layout, null)
+        var views = arrayListOf(view1, view2, view3)
+
+        var titles = arrayListOf("테스트1", "테스트2", "테스트3")
+        decent_banner.start(views, titles, 2, 500, R.drawable.common_empty_people_ic)
     }
 
     private fun addItem() {
